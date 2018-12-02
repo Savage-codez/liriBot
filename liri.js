@@ -41,7 +41,7 @@ function doTheSpotify() {
     } else {
       // Returns JSON info for selected track
       // console.log(JSON.stringify(data, null, 2));
-
+      console.log("{{{**********||**********}}}");
       console.log(
         "\nArtist: " +
           JSON.stringify(data.tracks.items[0].artists[0].name, null, 2) +
@@ -53,6 +53,7 @@ function doTheSpotify() {
       console.log(
         "Album " + JSON.stringify(data.tracks.items[0].album.name) + "\n"
       );
+      console.log("{{{**********||**********}}}");
     }
   });
 }
