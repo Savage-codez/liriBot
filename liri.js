@@ -4,7 +4,7 @@ var Spotify = require("node-spotify-api");
 
 var command = process.argv[2];
 
-var value = process.argv[3];
+var value = process.argv.slice(3).join("");
 
 var request = require("request");
 
@@ -58,15 +58,17 @@ function doTheSpotify() {
 
 function doTheBandThing() {
   console.log("Doing the band thing");
+
   var queryUrl =
     "https://rest.bandsintown.com/artists/" +
     value +
     "/events?app_id=codingbootcamp";
-
+  console.log(queryUrl);
   request(queryUrl, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       console.log("{{{**********||**********}}}");
-
+      // console.log(body);
+      console.log(JSON.stringify(body, null, 2));
       console.log("{{{**********||**********}}}");
     }
   });
